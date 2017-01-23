@@ -1,0 +1,329 @@
+/*!
+ * Bootstrap v3.3.6 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+ //Include Google Font - ROBOTO
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500,900,700,700italic,900italic,500italic,400italic,300italic,100italic,100);
+
+// Core variables and mixins
+@import "variables";
+@import "bootstrap/mixins";
+
+// Reset and dependencies
+@import "bootstrap/normalize";
+  b, strong {
+    font-weight: 500
+  }
+@import "bootstrap/print";
+@import "bootstrap/glyphicons";
+
+
+// Core CSS
+@import "bootstrap/scaffolding";
+
+body {
+  color: lighten($gray, 10%);
+  font-weight: 300;
+}
+
+@import "bootstrap/type";
+
+//CUSTOM FONT STYLE
+
+h1, .h1,
+h2, .h2,
+h3, .h3, 
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  color: $gray-dark;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+
+  small,
+  .small {
+     font-weight: $headings-font-weight;
+  }
+
+  strong,
+  .strong {
+   font-weight: 600;
+  }
+}
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+
+  small,
+  .small {
+     font-weight: $headings-font-weight;
+  }
+
+   strong,
+  .strong {
+   font-weight: 600;
+  }
+}
+
+
+@import "bootstrap/code";
+@import "bootstrap/grid";
+@import "bootstrap/tables";
+
+@import "bootstrap/forms";
+
+label {
+  font-weight: 400;
+  color: $gray
+}
+
+@import "bootstrap/buttons";
+
+//CUSTOM BUTTONS STYLE
+
+// Button variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+
+@mixin button-variant-custom($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  &:focus,
+  &.focus {
+    outline: none;
+    color: $color;
+    background-color: lighten($background, 10%);
+        border-color: lighten($border, 15%);
+  }
+  &:hover {
+    outline: none;
+    color: $color;
+    background-color: lighten($background, 10%);
+        border-color: lighten($border, 12%);
+  }
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: $color;
+    background-color: lighten($background, 10%);
+        border-color: lighten($border, 12%);
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: $color;
+      background-color: lighten($background, 10%);
+          border-color: lighten($border, 15%);
+    }
+  }
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: $background;
+          border-color: $border;
+    }
+  }
+
+  .badge {
+    color: $background;
+    background-color: $color;
+  }
+}
+
+
+
+
+.btn-default {
+  @include button-variant-custom($btn-default-color, $btn-default-bg, $btn-default-border);
+}
+.btn-primary {
+  @include button-variant-custom($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+}
+// Success appears as green
+.btn-success {
+  @include button-variant-custom($btn-success-color, $btn-success-bg, $btn-success-border);
+}
+// Info appears as blue-green
+.btn-info {
+  @include button-variant-custom($btn-info-color, $btn-info-bg, $btn-info-border);
+}
+// Warning appears as orange
+.btn-warning {
+  @include button-variant-custom($btn-warning-color, $btn-warning-bg, $btn-warning-border);
+}
+// Danger and error appear as red
+.btn-danger {
+  @include button-variant-custom($btn-danger-color, $btn-danger-bg, $btn-danger-border);
+}
+
+
+// Components
+@import "bootstrap/component-animations";
+@import "bootstrap/dropdowns";
+@import "bootstrap/button-groups";
+@import "bootstrap/input-groups";
+@import "bootstrap/navs";
+
+@import "bootstrap/navbar";
+  .dropdown-menu {
+      padding: 0;
+      &> li {
+        &> a {
+          padding: 10px 20px;
+        }
+      }
+
+      .divider {
+        margin: 0;
+      }
+    }
+
+    .navbar-inverse {
+      .dropdown-menu {
+          a:hover {
+             background-color: lighten($brand-success, 60%);
+            }
+      }
+
+      .navbar-toggle {
+        border: none;
+        &:hover, &:active, &:focus{
+          background-color: darken($brand-success, 10%);
+        }
+      }
+
+  }
+
+
+  .nav-transparent {
+    background-color: transparent;
+    border: none;
+    .navbar-toggle {
+        .icon-bar {
+          background-color:$brand-success;
+        }
+        &:hover, &:active, &:focus{
+          background-color: transparent;
+
+          .icon-bar {
+            background-color: darken($brand-success, 10%);
+          }
+        }
+    }
+    .navbar-brand {
+        color: $gray;
+        &:hover, &:active, &:focus {
+          color: $gray-dark;
+        }
+    }
+
+    .navbar-nav {
+      li {
+        a {
+          color: $gray;
+          &:hover, &:active, &:focus {
+              color: $gray-dark;
+              background-color: transparent;
+          }
+        }
+
+        &.open {
+          a {
+           color: $gray-dark;
+           background-color: transparent;
+            &:hover, &:active, &:focus {
+              color: $gray-dark;
+              background-color: transparent;
+          }
+          }
+        }
+        &.active {
+            a {
+               color: $gray;
+                background-color: transparent;
+                &:hover, &:active, &:focus {
+                color: $gray-dark;
+                background-color: transparent;
+                }
+              }
+        }
+      }
+    }
+    .dropdown-menu {
+        a{
+            color: $gray;
+            &:hover, &:active, &:focus {
+              color: $gray-dark;
+              background-color: lighten($gray-lighter, 10%);
+            }
+          }
+    }
+
+  }
+@import "bootstrap/breadcrumbs";
+@import "bootstrap/pagination";
+@import "bootstrap/pager";
+@import "bootstrap/labels";
+
+  .label {
+    font-weight: 400
+  }
+
+@import "bootstrap/badges";
+
+@import "bootstrap/jumbotron";
+.jumbotron {
+  background-color: lighten($gray-lighter, 10%);
+}
+
+@import "bootstrap/thumbnails";
+@import "bootstrap/alerts";
+@import "bootstrap/progress-bars";
+.progress {
+	&.progress-thin {
+		height: 6px;
+	}
+}
+@import "bootstrap/media";
+@import "bootstrap/list-group";
+@import "bootstrap/panels";
+@import "bootstrap/responsive-embed";
+@import "bootstrap/wells";
+@import "bootstrap/close";
+.close {
+	text-shadow: none;
+  	@include opacity(.8);
+}
+
+// Components w/ JavaScript
+@import "bootstrap/modals";
+@import "bootstrap/tooltip";
+@import "bootstrap/popovers";
+@import "bootstrap/carousel";
+
+// Utility classes
+@import "bootstrap/utilities";
+@import "bootstrap/responsive-utilities";
+
+
+//********************
+// Custom Features
+//********************
+
+

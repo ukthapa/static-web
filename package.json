@@ -1,0 +1,41 @@
+{
+  "name": "static-web",
+  "version": "1.0.0",
+  "description": "Static Website workflow and build process",
+  "main": "index.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-bower": "^0.0.13",
+    "gulp-notify": "^2.2.0",
+    "gulp-sass": "^3.1.0"
+  },
+  "devDependencies": {
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-filesize": "0.0.6",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0",
+    "imagemin-pngquant": "^5.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ukthapa/static-web.git"
+  },
+  "keywords": [
+    "website",
+    "workflow",
+    "web"
+  ],
+  "author": "Uttam Kumar Thapa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ukthapa/static-web/issues"
+  },
+  "homepage": "https://github.com/ukthapa/static-web#readme"
+}

@@ -1,0 +1,122 @@
+// Core variables and mixins
+@import "variables";
+@import "../bootstrap/stylesheets/bootstrap/mixins";
+
+.card {
+	position: relative;
+	border: 1px solid lighten($gray-light, 10%);
+	margin-bottom: 20px;	
+	
+	&.card-block, .card-block  {
+		padding: 1.5rem;
+	}
+
+	.card-header {
+		padding: 1.5rem;
+		padding-bottom: 0;
+		margin: 0;
+		background-color: lighten($gray-light, 10%);
+	}
+
+	.card-title {
+		margin-top:0;
+	}
+
+	
+
+	.img-fluid {
+		max-width: 100%;
+		height: auto; 
+		width: 100% \9;
+	}
+
+	.list-group {
+		margin-bottom: 0;
+		li {
+		
+		}
+	}
+
+	&.text-xs-center {
+		text-align: center;
+	}
+
+	&.text-xs-right {
+		text-align: right; 
+	}
+
+	blockquote {
+		padding: 0;
+		margin: 0;
+		border-left: 0;
+	}
+
+}
+
+.card-primary {
+	background-color: $brand-primary;
+	border: 1px solid darken($brand-primary, 10%);
+	color: lighten($brand-primary, 50%);
+	footer {
+		color: lighten($brand-primary, 50%);
+	}	
+}
+
+.card-success {
+	background-color: $brand-success;
+	border: 1px solid darken($brand-success, 10%);
+	color: lighten($brand-success, 50%);
+	footer {
+		color: lighten($brand-success, 50%);
+	}
+}
+
+.card-info {
+	background-color: $brand-info;
+	border: 1px solid darken($brand-info, 10%);
+	color: lighten($brand-info, 50%);
+	footer {
+		color: lighten($brand-info, 50%);
+	}
+}
+
+.card-warning {
+	background-color: $brand-warning;
+	border: 1px solid darken($brand-warning, 10%);
+	color: lighten($brand-warning, 50%);
+	footer {
+		color: lighten($brand-warning, 50%);
+	}
+}
+
+.card-danger {
+	background-color: $brand-danger;
+	border: 1px solid darken($brand-danger, 10%);
+	color: lighten($brand-danger, 50%);
+	footer {
+		color: lighten($brand-danger, 50%);
+	}
+}
+
+
+.card-outline-primary {
+	border: 1px solid darken($brand-primary, 10%);
+}
+
+
+.card-outline-success {
+	border: 1px solid darken($brand-success, 10%);
+}
+
+.card-outline-info {
+	border: 1px solid darken($brand-info, 10%);
+}
+
+.card-outline-warning {
+	border: 1px solid darken($brand-warning, 10%);
+}
+
+.card-outline-danger {
+	border: 1px solid darken($brand-danger, 10%);
+}
+
