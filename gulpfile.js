@@ -19,17 +19,23 @@ var config  = {
 	prod : './prod',
 }
 
+
+
 //gulp task for running bower
 gulp.task('bower', function() { 
     return bower()
         .pipe(gulp.dest(config.bowerDir)) 
 });
 
+
+
 //gulp task to copy font-awasome
 gulp.task('icons', function() { 
     return gulp.src(config.bowerDir + '/font-awesome/fonts/**.*') 
         .pipe(gulp.dest(config.dev + '/fonts'))
 });
+
+
 
 //gulp task to copy glyphicons
 gulp.task('glyphicons', function() { 
@@ -53,6 +59,8 @@ gulp.task('css', function() { 
              }))) 
          .pipe(gulp.dest(config.dev + '/css')); 
 });
+
+
 
 //gulp task to concatinate js files
 gulp.task('js', function() { 
@@ -126,30 +134,6 @@ gulp.task('buildcss', function() { 
          .pipe(gulp.dest(config.prod + '/css')); 
 });
 
-// gulp.task('js', function() { 
- // // Build vendor files
- //  gulp.src(paths.vendor.src + '*.js')
- //  // Concat files
- //    .pipe(concat('vendor.js'))
- //  // Minify combined files and rename
- //    .pipe(uglify())
- //    .pipe(rename({ extname: '.min.js' }))
- //    .pipe(size())
- //    .pipe(gulp.dest(paths.vendor.dest));
-
- //  return gulp.src(paths.js.src + '*.js')
- //  // Concat files
- //    .pipe(concat('main.js'))
- //  // Lint file
- //    .pipe(eslint())
- //    .pipe(eslint.format())
- //    .pipe(eslint.failAfterError())
- //  // Minify files and rename
- //    .pipe(uglify())
- //    .pipe(rename({ extname: '.min.js' }))
- //    .pipe(size())
- //    .pipe(gulp.dest(paths.js.dest));
-// });
 
 
 
