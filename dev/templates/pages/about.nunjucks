@@ -1,0 +1,15 @@
+<!-- about.nunjucks -->
+{% extends "layout.nunjucks" %}
+
+{% block content %}
+<h1>This is the About page</h1>
+{% import 'macros/primarynav.nunjucks' as nav %}
+<!-- Creating the navigation with activePage = 'about' -->
+{{nav.active('about')}}
+{% endblock %}
+
+{% block pageJS %}
+<script>
+console.log("hi");
+</script>
+{% endblock %}

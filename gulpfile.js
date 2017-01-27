@@ -1,3 +1,4 @@
+'use strict';
 var gulp = require('gulp'),     
     sass = require('gulp-sass') ,
     notify = require("gulp-notify") ,
@@ -10,15 +11,50 @@ var gulp = require('gulp'), 
     eslint = require('gulp-eslint'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
-    bower = require('gulp-bower');
+    bower = require('gulp-bower'),
+    nunjucks = require('nunjucks'),
+    markdown = require('nunjucks-markdown'),
+    marked = require('marked'),
+    rename = require('gulp-rename'),
+    gulpnunjucks = require('gulp-nunjucks');
 
 
 var config  = {
 	bowerDir : './bower_components',
 	dev : './dev',
 	prod : './prod',
+    templates : './dev/templates/'
 }
 
+
+// Nunjucks template engine
+var env = new nunjucks.Environment(new nunjucks.FileSystemLoader(config.templates));
+
+
+marked.setOptions({
+    renderer: new marked.Renderer(),
+    gfm: true,
+    tables: true,
+    breaks: false,
+    pedantic: false,
+    sanitize: true,
+    smartLists: true,
+    smartypants: false
+});
+
+
+markdown.register(env, marked);
+
+gulp.task('pages', function() {
+    // Gets .html files. see file layout at bottom
+    return gulp.src([config.templates + '/pages/*.+(html|nunjucks)', config.templates + '/pages/**/*.+(html|nunjucks)'])
+        // Renders template with nunjucks and marked
+        .pipe(gulpnunjucks.compile("", {env: env}))
+        // Uncomment the following if your source pages are something other than *.html. 
+        .pipe(rename(function (path) { path.extname=".html" }))
+        // output files in dist folder
+        .pipe(gulp.dest(config.dev))
+});
 
 
 //gulp task for running bower
