@@ -15,7 +15,10 @@ var gulp = require('gulp'), 
     nunjucks = require('nunjucks'),
     markdown = require('nunjucks-markdown'),
     marked = require('marked'),
+    frontMatter = require('gulp-front-matter'),
     rename = require('gulp-rename'),
+    wrap = require('gulp-wrap'),
+    fs = require('fs'),
     gulpnunjucks = require('gulp-nunjucks');
 
 
@@ -23,8 +26,10 @@ var config  = {
 	bowerDir : './bower_components',
 	dev : './dev',
 	prod : './prod',
-    templates : './dev/templates/'
+    templates : './dev/templates/',
+    content : './dev/markdown/'
 }
+
 
 
 // Nunjucks template engine
@@ -55,6 +60,18 @@ gulp.task('pages', function() {
         // output files in dist folder
         .pipe(gulp.dest(config.dev))
 });
+
+
+// gulp.task('pages:md', function() {
+//   gulp.src([config.content + '*.md', config.templates + '/pages/*.+(html|nunjucks)', config.templates + '/pages/**/*.+(html|nunjucks)'])
+//     .pipe(frontMatter())
+//     .pipe(marked())
+//     .pipe(wrap(function (data) {
+//       return fs.readFileSync(config.templates + data.file.frontMatter.layout).toString()
+//     }, null, {engine: 'nunjucks'}))
+//      .pipe(gulp.dest(config.dev))
+// });
+
 
 
 //gulp task for running bower
